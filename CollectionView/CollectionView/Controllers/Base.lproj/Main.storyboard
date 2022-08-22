@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5E6-uq-aXf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Fish-->
+        <scene sceneID="mXt-29-Eae">
+            <objects>
+                <collectionViewController id="CYQ-dZ-2za" customClass="CollectionViewController" customModule="CollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="WJ3-H1-m3l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NSx-6K-EhA">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="CYQ-dZ-2za" id="UfL-Db-AKw"/>
+                            <outlet property="delegate" destination="CYQ-dZ-2za" id="675-c0-CoT"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Fish" id="3Hk-Wn-yIJ"/>
+                    <connections>
+                        <segue destination="xVP-9G-qrz" kind="showDetail" id="nJs-CV-bnV"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RBd-Jw-WQH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1083" y="-9"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Lw1-os-07b">
+            <objects>
+                <viewController id="xVP-9G-qrz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JTB-gs-IUs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M8G-3F-2yh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="798"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cK9-rV-rV5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cK9-rV-rV5" firstAttribute="bottom" secondItem="M8G-3F-2yh" secondAttribute="bottom" id="Wtb-PH-1zR"/>
+                            <constraint firstItem="M8G-3F-2yh" firstAttribute="top" secondItem="cK9-rV-rV5" secondAttribute="top" id="YbR-in-4N9"/>
+                            <constraint firstItem="M8G-3F-2yh" firstAttribute="leading" secondItem="cK9-rV-rV5" secondAttribute="leading" id="ifc-Rj-NrO"/>
+                            <constraint firstItem="cK9-rV-rV5" firstAttribute="trailing" secondItem="M8G-3F-2yh" secondAttribute="trailing" id="yY1-ll-fro"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nh2-8Q-Xbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1967" y="-9"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EJN-HQ-raU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5E6-uq-aXf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K8u-qm-Ovh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CYQ-dZ-2za" kind="relationship" relationship="rootViewController" id="Imo-mt-SLE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gXq-qu-d22" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-539" y="5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
