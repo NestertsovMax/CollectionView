@@ -30,17 +30,17 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Fish" id="3Hk-Wn-yIJ"/>
                     <connections>
-                        <segue destination="xVP-9G-qrz" kind="showDetail" id="nJs-CV-bnV"/>
+                        <segue destination="xVP-9G-qrz" kind="showDetail" identifier="showDetailsViewController" id="nJs-CV-bnV"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBd-Jw-WQH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1083" y="-9"/>
         </scene>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="Lw1-os-07b">
             <objects>
-                <viewController id="xVP-9G-qrz" sceneMemberID="viewController">
+                <viewController id="xVP-9G-qrz" customClass="DetailsViewController" customModule="CollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JTB-gs-IUs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,6 +58,9 @@
                             <constraint firstItem="cK9-rV-rV5" firstAttribute="trailing" secondItem="M8G-3F-2yh" secondAttribute="trailing" id="yY1-ll-fro"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ibImageView" destination="M8G-3F-2yh" id="mJh-RL-OaN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nh2-8Q-Xbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
