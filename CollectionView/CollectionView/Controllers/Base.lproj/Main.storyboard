@@ -18,26 +18,59 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NSx-6K-EhA">
                             <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells/>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HeaderID" id="vEz-bU-iyv">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Header Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0a-Td-8Wx">
+                                    <rect key="frame" x="23" y="8" width="368" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailingMargin" secondItem="i0a-Td-8Wx" secondAttribute="trailing" constant="15" id="fEX-D2-e3o"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="i0a-Td-8Wx" secondAttribute="bottom" id="lKM-0h-pfA"/>
+                                <constraint firstItem="i0a-Td-8Wx" firstAttribute="leading" secondItem="vEz-bU-iyv" secondAttribute="leadingMargin" constant="15" id="wZ2-YO-mo2"/>
+                                <constraint firstItem="i0a-Td-8Wx" firstAttribute="top" secondItem="vEz-bU-iyv" secondAttribute="topMargin" id="xIy-sU-QSv"/>
+                            </constraints>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="CYQ-dZ-2za" id="UfL-Db-AKw"/>
                             <outlet property="delegate" destination="CYQ-dZ-2za" id="675-c0-CoT"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Fish" id="3Hk-Wn-yIJ"/>
+                    <navigationItem key="navigationItem" title="Fish" id="3Hk-Wn-yIJ">
+                        <rightBarButtonItems>
+                            <barButtonItem image="square.grid.3x2.fill" catalog="system" id="5y2-Pa-8oS">
+                                <color key="tintColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="gribButtonPressed:" destination="CYQ-dZ-2za" id="1BY-CU-ayL"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="list.dash" catalog="system" id="1QP-iN-XUW">
+                                <color key="tintColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="listButtonPressed:" destination="CYQ-dZ-2za" id="n1P-JF-3sq"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <segue destination="xVP-9G-qrz" kind="showDetail" identifier="showDetailsViewController" id="nJs-CV-bnV"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBd-Jw-WQH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1083" y="-9"/>
+            <point key="canvasLocation" x="922" y="-9"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Title-->
         <scene sceneID="Lw1-os-07b">
             <objects>
                 <viewController id="xVP-9G-qrz" customClass="DetailsViewController" customModule="CollectionView" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,13 +91,14 @@
                             <constraint firstItem="cK9-rV-rV5" firstAttribute="trailing" secondItem="M8G-3F-2yh" secondAttribute="trailing" id="yY1-ll-fro"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="2RX-ta-msj"/>
                     <connections>
                         <outlet property="ibImageView" destination="M8G-3F-2yh" id="mJh-RL-OaN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nh2-8Q-Xbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1967" y="-9"/>
+            <point key="canvasLocation" x="2093" y="-9"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EJN-HQ-raU">
@@ -82,10 +116,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXq-qu-d22" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-539" y="5"/>
+            <point key="canvasLocation" x="-175" y="-9"/>
         </scene>
     </scenes>
     <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="square.grid.3x2.fill" catalog="system" width="128" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

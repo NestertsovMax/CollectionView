@@ -17,7 +17,11 @@ class FishCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.backgroundColor = .lightGray
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.black.cgColor
+        layer.cornerRadius = 8
     }
     
     func update(name: String, image: UIImage) {

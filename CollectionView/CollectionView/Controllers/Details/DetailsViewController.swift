@@ -19,6 +19,6 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
 
         title = fish?.name
-        
+        ibImageView.image = fish?.image
     }
 }
