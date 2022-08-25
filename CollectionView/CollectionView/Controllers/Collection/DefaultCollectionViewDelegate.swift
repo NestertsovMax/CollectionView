@@ -7,7 +7,13 @@
 
 import UIKit
 
-class DefaultCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout {
+protocol CollectionViewSelectableItemDelegate: AnyObject, UICollectionViewDelegateFlowLayout {
+    var didSelectedItem: ((_ indexPath: IndexPath) -> Void)? { get set }
+}
+
+class DefaultCollectionViewDelegate: NSObject, CollectionViewSelectableItemDelegate {
+    var didSelectedItem: ((_ indexPath: IndexPath) -> Void)?
+    
     var minimumItemSpacing: CGFloat { return 4 }
     var sectionInsets: UIEdgeInsets { return UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20) }
     
@@ -21,5 +27,19 @@ class DefaultCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayou
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInsets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.purple
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.lightGray
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        didSelectedItem?(indexPath)
     }
 }

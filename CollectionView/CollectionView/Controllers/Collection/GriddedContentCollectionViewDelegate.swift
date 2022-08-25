@@ -8,7 +8,7 @@
 import UIKit
 
 class GriddedContentCollectionViewDelegate: DefaultCollectionViewDelegate {
-    override var minimumItemSpacing: CGFloat { return 4 }
+    override var minimumItemSpacing: CGFloat { return 12 }
     override var sectionInsets: UIEdgeInsets { return UIEdgeInsets(top: 20, left: 12, bottom: 30, right: 12) }
     private let itemPerRow: CGFloat = 3
     

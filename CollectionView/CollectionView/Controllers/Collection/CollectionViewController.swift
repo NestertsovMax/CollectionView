@@ -10,12 +10,31 @@ import UIKit
 class CollectionViewController: UICollectionViewController {
     
     private var datasource: [Fish] = []
+    private let gridedDelegate = GriddedContentCollectionViewDelegate()
+    private let tableDelegate = TabledContentCollectionViewDelegate()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         generateDatasource()
-        collectionView.register(FishCollectionViewCell.nib, forCellWithReuseIdentifier: FishCollectionViewCell.reuseId)
+        setupCollectionView()
+    }
+    
+    private func setupCollectionView() {
+        gridedDelegate.didSelectedItem = { [unowned self] indexPath in
+            self.showDetailsController(for: indexPath)
+        }
+        tableDelegate.didSelectedItem = { [unowned self] indexPath in
+            self.showDetailsController(for: indexPath)
+        }
+        
+        collectionView?.delegate = gridedDelegate
+        collectionView?.register(FishCollectionViewCell.nib, forCellWithReuseIdentifier: FishCollectionViewCell.reuseId)
+    }
+    
+    private func showDetailsController(for indexPath: IndexPath) {
+        let fish = datasource[indexPath.item]
+        performSegue(withIdentifier: "showDetailsViewController", sender: fish)
     }
     
     private func generateDatasource() {
@@ -24,14 +43,20 @@ class CollectionViewController: UICollectionViewController {
             let fish = Fish(name: "\(i)", image: UIImage(imageLiteralResourceName: imageLiteralName))
             datasource.append(fish)
         }
-        collectionView.reloadData()
+        collectionView?.reloadData()
     }
 
     @IBAction private func listButtonPressed(_ sender: Any) {
-        
+        collectionView?.delegate = tableDelegate
+        collectionView?.performBatchUpdates({
+            collectionView?.reloadData()
+        }, completion: nil)
     }    
     @IBAction private func gribButtonPressed(_ sender: Any) {
-        
+        collectionView?.delegate = gridedDelegate
+        collectionView?.performBatchUpdates({
+            collectionView?.reloadData()
+        }, completion: nil)
     }
     // MARK: - Navigation
     
@@ -60,22 +85,6 @@ extension CollectionViewController {
         let fish = datasource[indexPath.item]
         cell.update(name: fish.name, image: fish.image)
         return cell
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let fish = datasource[indexPath.item]
-        performSegue(withIdentifier: "showDetailsViewController", sender: fish)
-        
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = .purple
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = .lightGray
     }
     
 //    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
