@@ -9,10 +9,10 @@ import UIKit
 
 class TabledContentCollectionViewDelegate: DefaultCollectionViewDelegate {
     
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let paddindSectionSpace = sectionInsets.left + sectionInsets.right
-            let widhPerItem = collectionView.bounds.width - paddindSectionSpace
-            return CGSize(width: widhPerItem, height: widhPerItem * 0.5)
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let paddindSectionSpace = sectionInsets.left + sectionInsets.right
+        let widhPerItem = collectionView.bounds.width - paddindSectionSpace
+        return CGSize(width: widhPerItem, height: widhPerItem * 0.5)
+    }
 }
 

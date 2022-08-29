@@ -64,18 +64,17 @@ class CollectionViewController: UICollectionViewController {
         guard let destVC = segue.destination as? DetailsViewController else { return }
         destVC.fish = sender as? Fish
     }
-
 }
 
 // MARK: - UICollectionViewDataSource & UICollectionViewDelegate
 
 extension CollectionViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        1
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return datasource.count
+        datasource.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -86,10 +85,4 @@ extension CollectionViewController {
         cell.update(name: fish.name, image: fish.image)
         return cell
     }
-    
-//    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderID", for: indexPath)
-//        return header
-//    }
-    
 }

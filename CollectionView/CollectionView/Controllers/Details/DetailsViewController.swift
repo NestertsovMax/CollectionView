@@ -13,8 +13,6 @@ class DetailsViewController: UIViewController {
 
     @IBOutlet private weak var ibImageView: UIImageView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

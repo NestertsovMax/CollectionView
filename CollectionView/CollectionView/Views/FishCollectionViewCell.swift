@@ -27,9 +27,5 @@ class FishCollectionViewCell: UICollectionViewCell {
     func update(name: String, image: UIImage) {
         ibTitle.text = name
         imageView.image = image
-        
-        
-        
-        
     }
 }
